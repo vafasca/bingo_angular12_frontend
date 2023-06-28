@@ -2,10 +2,10 @@
     <tr>
         <th>Jugadores</th>
     </tr>
-    <tr>
-        <td>Juan Pérez</td>
+    <tr class="lista" *ngFor="let item of personas">
+        <td>{{item.player}}</td>
     </tr>
-    <tr>
+    <!-- <tr>
         <td>María González</td>
     </tr>
     <tr>
@@ -34,5 +34,5 @@
     </tr>
     <tr>
         <td>Luisa Vargas</td>
-    </tr>
+    </tr> -->
 </table>
