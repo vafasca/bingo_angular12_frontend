@@ -11,7 +11,6 @@
 
 .balotas_container,
 .list_container {
-
     padding: 10px;
     width: 200px;
 }
@@ -19,17 +18,17 @@
 .card_container {
     background-color: #f2f2f2;
     padding: 10px;
-    margin: 50px auto;
+    margin: 80px auto;
 }
 
 /* .container{
         margin: 100px auto;
 } */
-table {
-    width: 200px;
+/* table {
+    width: 80px;
     border-collapse: collapse;
-    /* margin-bottom: 80px; */
-}
+     margin-bottom: 80px;
+} */
 
 th {
     padding: 5px;
@@ -47,4 +46,24 @@ td {
     border: 1px solid #ccc;
 }
 
+.buttons_container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 80px;
+    width: 99%;
+}
 
+.button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: red;
+}
