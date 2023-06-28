@@ -1,3 +1,27 @@
+
+
+/* Estilos CSS para los contenedores */
+ /* Estilos CSS para los contenedores */
+ .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: rgb(133, 236, 240);
+}
+
+.balotas_container,
+.list_container {
+
+    padding: 10px;
+    width: 200px;
+}
+
+.card_container {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 50px auto;
+}
+
 /* .container{
         margin: 100px auto;
 } */
