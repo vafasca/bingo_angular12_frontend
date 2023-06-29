@@ -19,7 +19,7 @@ const routes: Routes = [
       import('./features/room/room.module').then((m) => m.RoomModule),
   },
   {
-    path: '**', redirectTo: 'bingo_room', pathMatch:'full'
+    path: '**', redirectTo: '/login', pathMatch:'full'
   },
 ];
 

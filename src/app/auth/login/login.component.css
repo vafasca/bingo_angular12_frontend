@@ -3,23 +3,10 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-image: url('https://img.freepik.com/vector-gratis/bolas-loteria-volando-monedas-oro-cinta-roja-publicidad-comercial-juegos-azar_1262-13072.jpg?w=2000');
+    background-image: url('https://img.freepik.com/vector-gratis/bolas-loteria-volando-monedas-oro-cinta-roja-publicidad-comercial-juegos-azar_1262-13072.jpg?w=2000');/*just test*/
     background-size: cover;
     background-repeat: no-repeat;
 }
-/* body {
-    background-image: url('ruta_de_la_imagen.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-  } */
-  
-  /* .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: transparent;
-  } */
   
   form {
     padding: 20px;

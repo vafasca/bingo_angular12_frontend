@@ -1,9 +1,10 @@
 <div class="container">
-    <form>
+    <!-- se agrego reactive form module para usar formGroup -->
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="user"> 
         <h2>LOGIN</h2>
-        <input type="text" placeholder="Usuario" required>
-        <input type="password" placeholder="Contraseña" required>
-        <button type="submit">Iniciar sesión</button>
+        <input type="text" placeholder="Usuario" formControlName="name">
+        <input type="password" placeholder="Contraseña" formControlName="password">
+        <button type="submit" [disabled]="user.invalid">Iniciar sesión</button>
         <button type="submit">Registrarse</button>
       </form>
 </div>
