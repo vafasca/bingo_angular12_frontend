@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/features/room/interfaces/usuario.interface';
+import { UserListService } from 'src/app/features/room/services/user-list.service';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +12,16 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
   user!: FormGroup;
   loginError: boolean = false;
+  userList!: Usuario[];
 
-  constructor(private formBuilder: FormBuilder, private router: Router){}
+  constructor(private formBuilder: FormBuilder, private router: Router, private userLog: UserListService){}
 
   ngOnInit(): void {
+    this.userLog.getUsers().subscribe((user: Usuario[]) => {
+    this.userList = user;
+    console.log(this.userList);
+    });
+
     this.user = this.formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(5)]),
       password: new FormControl('', Validators.required)
@@ -25,9 +33,12 @@ export class LoginComponent implements OnInit{
       // Validación exitosa, puedes realizar las acciones necesarias
       const username = this.user.value.name;
       const password = this.user.value.password;
+      
+      let usuario = this.userList.find(usuario => usuario.user === username);
+      //let pass = this.userList.some(usuario => usuario.password === password);
 
       // Ejemplo de datos hardcodeados para validar el inicio de sesión
-      if (username === 'usuario' && password === 'contraseña') {
+      if (usuario && usuario.password === password) {
         console.log('Inicio de sesión exitoso');
         this.router.navigate(['/lobby']);
         this.user.reset();
