@@ -1,5 +1,38 @@
-.container{
+.container {
     display: flex;
     height: 100%;
-    background-color: plum;
-}
+    background-color: rgb(160, 214, 221);
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+  }
+  
+  .scrollable-table-container {
+    width: 75%;
+    height: 75%;
+    overflow-y: auto;
+    margin: 20px auto; /* Agrega margen vertical */
+  }
+  
+  .scrollable-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .ingresar-btn {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
