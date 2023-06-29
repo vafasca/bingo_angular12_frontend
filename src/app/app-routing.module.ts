@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LobbyComponent } from './features/room/lobby/lobby.component';
 import { RoomComponent } from './features/room/room.component';
 import { BingoRoomComponent } from './features/room/bingo-room/bingo-room.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent},
   {path: 'lobby', component: LobbyComponent},
   {path: 'room', component: RoomComponent},
   {path: 'principal', component: BingoRoomComponent},
   {
-    path: '', redirectTo: '/bingo_room', pathMatch: 'full'
+    path: '', redirectTo: '/principal', pathMatch: 'full'
   },
   {
     path: 'bingo_room',

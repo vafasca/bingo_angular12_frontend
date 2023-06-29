@@ -2,79 +2,90 @@
   "users": [
       {
         "id": 1,
-        "userId": "vafasca",
+        "user": "vafasca",
         "password": "vafasca",
         "estado": true,
-        "lobbyId": 1
+        "estadoLobby": true,
+        "lobbyId": 2
       },
       {
         "id": 2,
-        "userId": "baov1995",
+        "user": "baov1995",
         "password": "baov1995",
         "estado": true,
+        "estadoLobby": true,
         "lobbyId": 1
       },
       {
         "id":3,
-        "userId": "sotoka",
+        "user": "sotoka",
         "password":"sotoka",
         "estado": true,
+        "estadoLobby": true,
         "lobbyId": 1
       },
       {
         "id": 4,
-        "userId": "vafasca1",
+        "user": "vafasca1",
         "password": "vafasca1",
         "estado": true,
-        "lobbyId": 0
+        "estadoLobby": true,
+        "lobbyId": 2
       },
       {
         "id": 5,
-        "userId": "baov19951",
+        "user": "baov19951",
         "password": "baov19951",
-        "estado": true,
+        "estado": false,
+        "estadoLobby": true,
         "lobbyId": 1
       },
       {
         "id":6,
-        "userId": "sotoka1",
+        "user": "sotoka1",
         "password":"sotoka1",
         "estado": true,
+        "estadoLobby": true,
         "lobbyId": 1
       },
       {
         "id": 7,
-        "userId": "vafasca2",
+        "user": "vafasca2",
         "password": "vafasca2",
-        "estado": true,
-        "lobbyId": 0
+        "estado": false,
+        "estadoLobby": true,
+        "lobbyId": 2
       },
       {
         "id": 8,
-        "userId": "baov19952",
+        "user": "baov19952",
         "password": "baov19952",
         "estado": true,
+        "estadoLobby": true,
         "lobbyId": 1
       },
       {
         "id": 9,
-        "userId": "sotoka2",
+        "user": "sotoka2",
         "password":"sotoka2",
         "estado": true,
+        "estadoLobby": true,
         "lobbyId": 1
       },
       {
         "id": 10,
-        "userId": "sotoka3",
+        "user": "sotoka3",
         "password":"sotoka3",
         "estado": true,
+        "estadoLobby": true,
         "lobbyId": 1
       },
       {
         "id": 11,
-        "userId": "sotoka4",
+        "user": "sotoka4",
         "password":"sotoka4",
-        "estado": true,
+        "estado": false,
+        "estadoLobby": true,
         "lobbyId": 1
       }
   ],
