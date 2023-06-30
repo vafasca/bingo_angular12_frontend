@@ -7,21 +7,20 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class LocalStorageService {
 
-  users!: Usuario[];
-  userListSubject!: BehaviorSubject<Usuario[]>;
+  users!: Usuario;
+  userListSubject!: BehaviorSubject<Usuario>;
   variableCompartida!: number;
 
   constructor() {
-    this.users = [];
-    this.userListSubject = new BehaviorSubject<Usuario[]>(this.users);
+    this.userListSubject = new BehaviorSubject<Usuario>(this.users);
    }
 
-  nexts(user: Usuario[]): void{
+  nexts(user: Usuario): void{
     this.users = user;
     this.userListSubject.next(this.users);
   }
 
-  asObservable(): Observable<Usuario[]>{
+  asObservable(): Observable<Usuario>{
     return this.userListSubject.asObservable();
   }
 }

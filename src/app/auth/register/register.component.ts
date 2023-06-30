@@ -12,7 +12,7 @@ import { UserListService } from 'src/app/features/room/services/user-list.servic
 })
 export class RegisterComponent implements OnInit{
   userForm!: FormGroup;
-  userList!: Usuario[];
+  user!: Usuario[];
 
   constructor(private loadUser: UserListService, private formBuilder: FormBuilder, private router: Router, private localStorage: LocalStorageService){}
 
@@ -22,11 +22,8 @@ export class RegisterComponent implements OnInit{
 
   ngOnInit(): void {
     this.getList();
-    let lastId = this.userList[this.userList.length - 1];
-    let id = lastId.id+1;
-
     this.userForm = this.formBuilder.group({
-      id: [id, Validators.required],
+      id: ['', Validators.required],
       user: ['', Validators.required],
       password: ['', Validators.required],
       estado: [false],
@@ -36,10 +33,21 @@ export class RegisterComponent implements OnInit{
   }
 
   getList(){
-    this.localStorage.asObservable().subscribe((user: Usuario[]) => {
-      this.userList = user;
+    this.loadUser.getUsers().subscribe((usuario: Usuario[]) => {
+      this.user = usuario;
+      console.log('getList: '+usuario);
+      this.setFormId();
     });
   }
+
+  setFormId() {
+  if (this.user && this.user.length > 0) {
+    let lastId = this.user[this.user.length - 1].id;
+    this.userForm.get('id')!.setValue(lastId + 1); // Asigna el valor al campo "id"
+  } else {
+    this.userForm.get('id')!.setValue(1); // Si la lista está vacía, asigna 1 como valor inicial
+  }
+}
 
   onSubmit(){
     if (this.userForm.valid) {

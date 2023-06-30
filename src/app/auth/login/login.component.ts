@@ -25,15 +25,6 @@ export class LoginComponent implements OnInit{
     });
   }
 
-  saveUsers(): void{
-    this.userLog.getUsers().subscribe((user: Usuario[]) => 
-    {
-      this.localStorageSvc.nexts(user);
-      this.userList = user;
-      console.log(this.userList);
-    });
-  }
-
   onRegister(){
     this.router.navigate(['/register']);
   }
@@ -46,10 +37,12 @@ export class LoginComponent implements OnInit{
       
       let usuario = this.userList.find(usuario => usuario.user === username);
       //let pass = this.userList.some(usuario => usuario.password === password);
-
+      
       // Ejemplo de datos hardcodeados para validar el inicio de sesión
       if (usuario && usuario.password === password) {
 
+        //this.saveUsers(usuario.id);
+        this.localStorageSvc.nexts(usuario);
         this.userLog.updateUsers(usuario.id, true).subscribe();
         this.localStorageSvc.variableCompartida = usuario.id;
 
@@ -64,5 +57,14 @@ export class LoginComponent implements OnInit{
         this.user.reset();
       }
     }
+  }
+
+  saveUsers(): void{
+    this.userLog.getUsers().subscribe((user: Usuario[]) => 
+    {
+      // this.localStorageSvc.nexts(user[id]);
+      this.userList = user;
+      console.log(this.userList);
+    });
   }
 }

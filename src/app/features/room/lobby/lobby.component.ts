@@ -18,7 +18,6 @@ export class LobbyComponent implements OnInit{
   logout(): void {
     // Realiza cualquier lógica adicional antes de salir
     // Navega hacia la página de login
-    console.log("id: "+this.idUser);
     this.update.updateUsers(this.idUser, false).subscribe();
     this.router.navigate(['/login']);
   }
