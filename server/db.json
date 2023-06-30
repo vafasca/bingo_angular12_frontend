@@ -7,14 +7,6 @@
       "estado": false,
       "estadoLobby": false,
       "lobbyId": 2
-    },
-    {
-      "id": 2,
-      "user": "sotoka",
-      "password": "sotoka",
-      "estado": false,
-      "estadoLobby": false,
-      "lobbyId": 0
     }
   ],
   "saldo": [

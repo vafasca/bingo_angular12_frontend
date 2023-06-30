@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/features/room/interfaces/usuario.interface';
+import { LocalStorageService } from 'src/app/features/room/services/local-storage.service';
 import { UserListService } from 'src/app/features/room/services/user-list.service';
 
 @Component({
@@ -14,17 +15,29 @@ export class LoginComponent implements OnInit{
   loginError: boolean = false;
   userList!: Usuario[];//lista de usuarios
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private userLog: UserListService){}
+  constructor(private formBuilder: FormBuilder, private router: Router, private userLog: UserListService, private localStorageSvc: LocalStorageService){}
 
   ngOnInit(): void {
-    this.userLog.getUsers().subscribe((user: Usuario[]) => {
-    this.userList = user;
-    console.log(this.userList);
-    });
+
+    this.saveUsers();
+
+    // this.userLog.getUsers().subscribe((user: Usuario[]) => {
+    // this.userList = user;
+    // console.log(this.userList);
+    // });
 
     this.user = this.formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(5)]),
       password: new FormControl('', Validators.required)
+    });
+  }
+
+  saveUsers(): void{
+    this.userLog.getUsers().subscribe((user: Usuario[]) => 
+    {
+      this.localStorageSvc.nexts(user);
+      this.userList = user;
+      console.log(this.userList);
     });
   }
 
