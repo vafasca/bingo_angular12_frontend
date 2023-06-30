@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit{
   getList(){
     this.localStorage.asObservable().subscribe((user: Usuario[]) => {
       this.userList = user;
-      console.log("localRegister: "+user);
     });
   }
 
@@ -50,6 +49,7 @@ export class RegisterComponent implements OnInit{
         this.router.navigate(['/login']);
         //this.userForm.reset();
       });
+      alert("Usuario registrado");
     }
   }
 }

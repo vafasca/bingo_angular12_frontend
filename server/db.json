@@ -7,6 +7,22 @@
       "estado": false,
       "estadoLobby": false,
       "lobbyId": 2
+    },
+    {
+      "id": 2,
+      "user": "buoloa",
+      "password": "buoloa",
+      "estado": false,
+      "estadoLobby": false,
+      "lobbyId": 0
+    },
+    {
+      "id": 3,
+      "user": "alabarda",
+      "password": "alabarda",
+      "estado": false,
+      "estadoLobby": false,
+      "lobbyId": 0
     }
   ],
   "saldo": [

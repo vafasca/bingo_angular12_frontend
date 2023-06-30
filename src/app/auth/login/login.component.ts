@@ -18,14 +18,7 @@ export class LoginComponent implements OnInit{
   constructor(private formBuilder: FormBuilder, private router: Router, private userLog: UserListService, private localStorageSvc: LocalStorageService){}
 
   ngOnInit(): void {
-
     this.saveUsers();
-
-    // this.userLog.getUsers().subscribe((user: Usuario[]) => {
-    // this.userList = user;
-    // console.log(this.userList);
-    // });
-
     this.user = this.formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(5)]),
       password: new FormControl('', Validators.required)
@@ -56,7 +49,11 @@ export class LoginComponent implements OnInit{
 
       // Ejemplo de datos hardcodeados para validar el inicio de sesión
       if (usuario && usuario.password === password) {
-        console.log('Inicio de sesión exitoso');
+
+        this.userLog.updateUsers(usuario.id, true).subscribe();
+        this.localStorageSvc.variableCompartida = usuario.id;
+
+        alert('Inicio de sesión exitoso');
         this.router.navigate(['/lobby']);
         this.user.reset();
         // Realizar acciones adicionales después del inicio de sesión exitoso

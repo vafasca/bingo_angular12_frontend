@@ -18,4 +18,10 @@ export class UserListService {
   postUsers(user: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(this.apiURI, user);
   }
+
+  updateUsers(userId: number, estadoSend:boolean): Observable<Usuario>{
+    const url = `${this.apiURI}/${userId}`;
+    const body = { estado: estadoSend };
+    return this.http.patch<Usuario>(url, body);
+  }
 }

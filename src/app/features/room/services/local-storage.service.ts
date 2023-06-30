@@ -9,6 +9,7 @@ export class LocalStorageService {
 
   users!: Usuario[];
   userListSubject!: BehaviorSubject<Usuario[]>;
+  variableCompartida!: number;
 
   constructor() {
     this.users = [];
