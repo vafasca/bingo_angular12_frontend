@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../services/local-storage.service';
 import { UserListService } from '../services/user-list.service';
+import { Usuario } from '../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-lobby',
@@ -10,9 +11,10 @@ import { UserListService } from '../services/user-list.service';
 })
 export class LobbyComponent implements OnInit{
   idUser!: number;
+  pruebaId!: number;
   constructor(private router: Router, private localVariable: LocalStorageService, private update: UserListService){}
   ngOnInit(): void {
-    this.idUser = this.localVariable.variableCompartida;
+    this.localVariable.asObservable().subscribe((user: Usuario) => {this.idUser = user.id});
   }
   
   logout(): void {

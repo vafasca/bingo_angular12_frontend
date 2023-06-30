@@ -10,8 +10,16 @@
     },
     {
       "id": 2,
-      "user": "sotoka2",
-      "password": "sotoka2",
+      "user": "sotoka",
+      "password": "sotoka",
+      "estado": false,
+      "estadoLobby": false,
+      "lobbyId": 0
+    },
+    {
+      "id": 3,
+      "user": "pollossofia",
+      "password": "pollossofia",
       "estado": false,
       "estadoLobby": false,
       "lobbyId": 0

@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit{
   getList(){
     this.loadUser.getUsers().subscribe((usuario: Usuario[]) => {
       this.user = usuario;
-      console.log('getList: '+usuario);
       this.setFormId();
     });
   }
