@@ -14,4 +14,8 @@ export class UserListService {
   getUsers(): Observable<Usuario[]>{
     return this.http.get<Usuario[]>(this.apiURI);
   }
+
+  postUsers(user: Usuario): Observable<Usuario>{
+    return this.http.post<Usuario>(this.apiURI, user);
+  }
 }

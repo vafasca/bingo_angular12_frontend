@@ -5,6 +5,6 @@
         <input type="text" placeholder="Usuario" formControlName="name">
         <input type="password" placeholder="Contraseña" formControlName="password">
         <button type="submit" [disabled]="user.invalid">Iniciar sesión</button>
-        <button type="submit">Registrarse</button>
+        <button type="submit" (click)="onRegister()">Registrarse</button>
       </form>
 </div>

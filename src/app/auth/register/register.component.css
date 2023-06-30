@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url('https://img.freepik.com/vector-gratis/bolas-loteria-volando-monedas-oro-cinta-roja-publicidad-comercial-juegos-azar_1262-13072.jpg?w=2000');/*just test*/
+  background-size: cover;
+ 
+}
+
+.registration-form {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  padding: 40px;
+  width: 400px;
+}
+
+.registration-form h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="password"],
+.form-group input[type="checkbox"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"],
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover,
+.logout-btn:hover {
+  background-color: #45a049;
+}
+

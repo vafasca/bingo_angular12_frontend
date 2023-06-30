@@ -12,7 +12,7 @@ import { UserListService } from 'src/app/features/room/services/user-list.servic
 export class LoginComponent implements OnInit{
   user!: FormGroup;
   loginError: boolean = false;
-  userList!: Usuario[];
+  userList!: Usuario[];//lista de usuarios
 
   constructor(private formBuilder: FormBuilder, private router: Router, private userLog: UserListService){}
 
@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit{
       name: new FormControl('', [Validators.required, Validators.minLength(5)]),
       password: new FormControl('', Validators.required)
     });
+  }
+
+  onRegister(){
+    this.router.navigate(['/register']);
   }
 
   onSubmit() {
