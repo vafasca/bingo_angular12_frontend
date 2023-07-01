@@ -17,6 +17,7 @@ export class LobbyComponent implements OnInit{
   lobbys!: Lobby[];
   users!: Usuario[];
   nombre!: string;
+  //usuario!: Usuario;//xxxxxx
   constructor(
     private router: Router, 
     private localVariable: LocalStorageService, 
@@ -27,18 +28,18 @@ export class LobbyComponent implements OnInit{
     const userCookie = this.cookieService.get('user');
     const idLog = JSON.parse(userCookie);
     this.idUser = idLog.id
-    console.log("hahaha"+this.idUser);
     this.lobbyList.getLobby().subscribe((lobby: Lobby[]) => {this.lobbys = lobby; console.log(this.lobbys);});
     this.update.getUsers().subscribe((users: Usuario[]) => {this.users = users; console.log(this.users);});
   }
   
   logout(): void {
     this.localVariable.clearUser()
-    this.update.updateUsers(this.idUser, false).subscribe();//cuando le da salir cambia estado a false
+    this.update.setLogout(this.idUser, false).subscribe();//cuando le da salir cambia estado a false
     this.router.navigate(['/login']);
   }
 
-  join(id: number){
-    alert("Uniendose id: "+id);
+  join(user: Lobby){
+    this.update.updateUser(this.idUser, true, user.id).subscribe();
+    this.router.navigate(['/principal']);
   }
 }

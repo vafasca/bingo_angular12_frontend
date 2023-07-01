@@ -14,4 +14,10 @@ export class LobbyListService {
   getLobby(): Observable<Lobby[]>{
     return this.http.get<Lobby[]>(this.apiURI);
   }
+
+  updateUsers(userId: number, estadoSend:boolean): Observable<Lobby>{
+    const url = `${this.apiURI}/${userId}`;
+    const body = { estadoLobby: estadoSend };
+    return this.http.patch<Lobby>(url, body);
+  }
 }

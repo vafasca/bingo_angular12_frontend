@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit{
 
         //this.saveUsers(usuario.id);
         this.localStorageSvc.nexts(usuario);
-        this.userLog.updateUsers(usuario.id, true).subscribe();
+        this.userLog.setLogout(usuario.id, true).subscribe();
         //this.localStorageSvc.variableCompartida = usuario.id;
 
         alert('Inicio de sesión exitoso');

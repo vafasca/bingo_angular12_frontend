@@ -19,9 +19,15 @@ export class UserListService {
     return this.http.post<Usuario>(this.apiURI, user);
   }
 
-  updateUsers(userId: number, estadoSend:boolean): Observable<Usuario>{
+  setLogout(userId: number, estadoSend:boolean): Observable<Usuario>{
     const url = `${this.apiURI}/${userId}`;
     const body = { estado: estadoSend };
     return this.http.patch<Usuario>(url, body);
+  }
+
+  updateUser(idUser: number, lobby: boolean, lobbyId: number): Observable<Usuario>{
+    const url = `${this.apiURI}/${idUser}`;
+    const body = {estadoLobby: lobby, lobbyId: lobbyId};
+    return this.http.patch<Usuario>(url, body)
   }
 }

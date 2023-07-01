@@ -4,25 +4,25 @@
       "id": 1,
       "user": "vafasca",
       "password": "vafasca",
-      "estado": true,
-      "estadoLobby": false,
-      "lobbyId": 0
+      "estado": false,
+      "estadoLobby": true,
+      "lobbyId": 1
     },
     {
       "id": 2,
       "user": "sotoka",
       "password": "sotoka",
       "estado": false,
-      "estadoLobby": false,
-      "lobbyId": 0
+      "estadoLobby": true,
+      "lobbyId": 1
     },
     {
       "id": 3,
       "user": "pollossofia",
       "password": "pollossofia",
       "estado": false,
-      "estadoLobby": false,
-      "lobbyId": 0
+      "estadoLobby": true,
+      "lobbyId": 2
     }
   ],
   "saldo": [
