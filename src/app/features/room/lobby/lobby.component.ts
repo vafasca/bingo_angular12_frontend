@@ -5,6 +5,7 @@ import { UserListService } from '../services/user-list.service';
 import { Usuario } from '../interfaces/usuario.interface';
 import { LobbyListService } from '../services/lobby-list.service';
 import { Lobby } from '../interfaces/lobby.interface';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-lobby',
@@ -15,25 +16,29 @@ export class LobbyComponent implements OnInit{
   idUser!: number;
   lobbys!: Lobby[];
   users!: Usuario[];
+  nombre!: string;
   constructor(
     private router: Router, 
     private localVariable: LocalStorageService, 
     private update: UserListService,
-    private lobbyList: LobbyListService){}
+    private lobbyList: LobbyListService,
+    private cookieService: CookieService){}
   ngOnInit(): void {
-    this.localVariable.asObservable().subscribe((user: Usuario) => {this.idUser = user.id; console.log(user);});
+    const userCookie = this.cookieService.get('user');
+    const idLog = JSON.parse(userCookie);
+    this.idUser = idLog.id
+    console.log("hahaha"+this.idUser);
     this.lobbyList.getLobby().subscribe((lobby: Lobby[]) => {this.lobbys = lobby; console.log(this.lobbys);});
     this.update.getUsers().subscribe((users: Usuario[]) => {this.users = users; console.log(this.users);});
   }
   
   logout(): void {
-    // Realiza cualquier lógica adicional antes de salir
-    // Navega hacia la página de login
+    this.localVariable.clearUser()
     this.update.updateUsers(this.idUser, false).subscribe();//cuando le da salir cambia estado a false
     this.router.navigate(['/login']);
   }
 
-  join(){
-    console.log("dentro");
+  join(id: number){
+    alert("Uniendose id: "+id);
   }
 }

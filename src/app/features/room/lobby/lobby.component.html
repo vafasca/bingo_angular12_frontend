@@ -12,13 +12,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of lobbys">
+          <tr *ngFor="let item of lobbys" >
             <td>{{item.id}}</td>
             <td>{{item.nombreSala}}</td>
             <td>{{item.limite}}</td>
             <td>{{item.contador}}</td>
             <td>{{item.estado}}</td>
-            <td><button type="button" (click)="join()" class="ingresar-btn">Ingresar</button></td>
+            <td><button type="button" (click)="join(item.id)" class="ingresar-btn">Ingresar</button></td>
           </tr>
           <!-- Añade más filas según tus necesidades -->
         </tbody>
