@@ -25,6 +25,7 @@ export class LocalStorageService {
     //this.userListSubject.next(this.users);
     this.userListSubject.next(user);
     this.cookieService.set(this.cookieName, JSON.stringify(user));
+    console.log("actualizado");
   }
 
   clearUser(): void {
