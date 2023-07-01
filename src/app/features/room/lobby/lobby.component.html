@@ -12,45 +12,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Sala 1</td>
-            <td>11</td>
-            <td>0</td>
-            <td>Disponible</td>
-            <td><button class="ingresar-btn">Ingresar</button></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Sala 2</td>
-            <td>11</td>
-            <td>0</td>
-            <td>No Disponible</td>
-            <td><button class="ingresar-btn">Ingresar</button></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Sala 3</td>
-            <td>11</td>
-            <td>0</td>
-            <td>Disponible</td>
-            <td><button class="ingresar-btn">Ingresar</button></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Sala 4</td>
-            <td>11</td>
-            <td>0</td>
-            <td>Disponible</td>
-            <td><button class="ingresar-btn">Ingresar</button></td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Sala 5</td>
-            <td>11</td>
-            <td>0</td>
-            <td>Disponible</td>
-            <td><button class="ingresar-btn">Ingresar</button></td>
+          <tr *ngFor="let item of lobbys">
+            <td>{{item.id}}</td>
+            <td>{{item.nombreSala}}</td>
+            <td>{{item.limite}}</td>
+            <td>{{item.contador}}</td>
+            <td>{{item.estado}}</td>
+            <td><button type="button" (click)="join()" class="ingresar-btn">Ingresar</button></td>
           </tr>
           <!-- Añade más filas según tus necesidades -->
         </tbody>

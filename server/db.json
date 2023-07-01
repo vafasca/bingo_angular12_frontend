@@ -4,7 +4,7 @@
       "id": 1,
       "user": "vafasca",
       "password": "vafasca",
-      "estado": false,
+      "estado": true,
       "estadoLobby": false,
       "lobbyId": 0
     },
@@ -167,21 +167,19 @@
   "lobby": [
     {
       "id": 1,
+      "nombreSala": "Sala ganadora",
       "estado": true,
       "ganador": "",
-      "limite": 11
+      "limite": 10,
+      "contador": 0
     },
     {
       "id": 2,
-      "estado": true,
-      "ganador": "",
-      "limite": 11
-    },
-    {
-      "id": 3,
+      "nombreSala": "Sala yaho",
       "estado": false,
-      "ganador": "pepe",
-      "limite": 11
+      "ganador": "",
+      "limite": 8,
+      "contador": 10
     }
   ],
   "balotas": [
