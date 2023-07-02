@@ -4,15 +4,15 @@
       "id": 1,
       "user": "vafasca",
       "password": "vafasca",
-      "estado": false,
+      "estado": true,
       "estadoLobby": true,
-      "lobbyId": 1
+      "lobbyId": 2
     },
     {
       "id": 2,
       "user": "sotoka",
       "password": "sotoka",
-      "estado": false,
+      "estado": true,
       "estadoLobby": true,
       "lobbyId": 2
     },
@@ -22,7 +22,7 @@
       "password": "pollossofia",
       "estado": false,
       "estadoLobby": true,
-      "lobbyId": 2
+      "lobbyId": 1
     },
     {
       "id": 4,
@@ -36,7 +36,7 @@
       "id": 5,
       "user": "pepito",
       "password": "pepito",
-      "estado": true,
+      "estado": false,
       "estadoLobby": true,
       "lobbyId": 1
     }
