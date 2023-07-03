@@ -4,7 +4,7 @@
       "id": 1,
       "user": "vafasca",
       "password": "vafasca",
-      "estado": true,
+      "estado": false,
       "estadoLobby": true,
       "lobbyId": 2
     },
@@ -30,13 +30,13 @@
       "password": "baov1995",
       "estado": false,
       "estadoLobby": true,
-      "lobbyId": 1
+      "lobbyId": 2
     },
     {
       "id": 5,
       "user": "pepito",
       "password": "pepito",
-      "estado": false,
+      "estado": true,
       "estadoLobby": true,
       "lobbyId": 1
     }
