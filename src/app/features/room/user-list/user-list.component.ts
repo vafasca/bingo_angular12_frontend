@@ -32,7 +32,6 @@ export class UserListComponent implements OnInit, OnDestroy {
        } else {
          this.idUser = null;
          this.cookieUser = null;
-         console.log("no hay nada");
           //Aquí puedes asignar un valor predeterminado si no hay usuario disponible
        }
      });
@@ -43,9 +42,7 @@ export class UserListComponent implements OnInit, OnDestroy {
        takeUntil(this.unsubscribe$)
      )
      .subscribe((users: Usuario[]) => {
-       console.log("idlobby: " + this.idLobby);
        this.persona = users.filter(user => (user.estadoLobby === true && user.lobbyId === this.idLobby));
-       console.log("persona "+this.persona);
      });
   }
   private updateUserList(): Observable<Usuario[]> {

@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit{
     {
       // this.localStorageSvc.nexts(user[id]);
       this.userList = user;
-      console.log(this.userList);
     });
   }
 }

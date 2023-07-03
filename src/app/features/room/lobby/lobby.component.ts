@@ -27,8 +27,8 @@ export class LobbyComponent implements OnInit{
     private lobbyList: LobbyListService,
     private cookieService: CookieService){}
   ngOnInit(): void {
-    const userCookie = this.cookieService.get('user');//evitar usar 
-    const idLog = JSON.parse(userCookie);//object
+    //const userCookie = this.cookieService.get('user');//evitar usar 
+    //const idLog = JSON.parse(userCookie);//object
     //this.idUser = idLog.id;
    
     //this.cookieUser = idLog;
@@ -39,15 +39,15 @@ export class LobbyComponent implements OnInit{
         this.idUser = user.id;
         this.cookieUser = user;
       } else {
-        console.log("no hay nada");
+        
         // Aquí puedes asignar un valor predeterminado si no hay usuario disponible
       }
     });
-    console.log("idUser: "+this.idUser);
+    
     //
-    console.log("asas "+this.cookieUser);
-    this.lobbyList.getLobby().subscribe((lobby: Lobby[]) => {this.lobbys = lobby; console.log(this.lobbys);});
-    this.update.getUsers().subscribe((users: Usuario[]) => {this.users = users; console.log(this.users);});
+    
+    this.lobbyList.getLobby().subscribe((lobby: Lobby[]) => {this.lobbys = lobby;});
+    this.update.getUsers().subscribe((users: Usuario[]) => {this.users = users;});
     //
     
     //this.localVariable.asObservable().subscribe((userC) => {this.idUser = userC?.lobbyId ?? 0; console.log("PPP"+userC?.lobbyId);});

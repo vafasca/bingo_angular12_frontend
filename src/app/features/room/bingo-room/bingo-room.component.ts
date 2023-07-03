@@ -11,21 +11,32 @@ import { Usuario } from '../interfaces/usuario.interface';
 })
 export class BingoRoomComponent implements OnInit{
 
-  userLog!: number;
+  cookieUser!: Usuario;
+  idUser!: number;
 
   constructor(
     private localStorgeSvc: LocalStorageService,
     private router: Router,
     private update: UserListService){}
   ngOnInit(): void {
-    this.localStorgeSvc.asObservable().subscribe((user) => {this.userLog = user?.lobbyId ?? 0; console.log("POLLO: "+user?.lobbyId);});
+    //this.localStorgeSvc.asObservable().subscribe((user) => {this.userCookie = user; this.userLog = user?.id});
+    this.localStorgeSvc.asObservable().subscribe((user: Usuario | null) => {
+      if (user) {
+        this.idUser = user.id;
+        this.cookieUser = user;
+      } else {
+        
+        // Aquí puedes asignar un valor predeterminado si no hay usuario disponible
+      }
+    });
+    console.log("idUsuario: "+this.idUser, "usuario: "+JSON.stringify(this.cookieUser))
   }
 
   logout(): void {//se puede cambiar idUser por cookie.idprobar 
     //this.localStorgeSvc.clearUser()//cookieSvc
     //alert("Saliendo: "+"id "+this.idUser+"estado "+false);
     //this.update.setLogout(this.idUser, false).subscribe();//cuando le da salir cambia estado a false
-    alert("saliendo"+this.userLog);
+    alert("saliendo"+this.idUser);
     this.router.navigate(['/lobby']);
   }
 }
