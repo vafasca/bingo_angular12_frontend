@@ -27,32 +27,21 @@ export class LobbyComponent implements OnInit{
     private lobbyList: LobbyListService,
     private cookieService: CookieService){}
   ngOnInit(): void {
-    //const userCookie = this.cookieService.get('user');//evitar usar 
-    //const idLog = JSON.parse(userCookie);//object
-    //this.idUser = idLog.id;
-   
-    //this.cookieUser = idLog;
-    //obteniendo de cookie
-    //this.localVariable.asObservable().subscribe((userC: Usuario | null)=>{this.probando = userC; this.});
     this.localVariable.asObservable().subscribe((user: Usuario | null) => {
       if (user) {
         this.idUser = user.id;
         this.cookieUser = user;
+        this.cookieUser.estado = true;
       } else {
         
         // Aquí puedes asignar un valor predeterminado si no hay usuario disponible
       }
     });
     
-    //
-    
     this.lobbyList.getLobby().subscribe((lobby: Lobby[]) => {this.lobbys = lobby;});
     this.update.getUsers().subscribe((users: Usuario[]) => {this.users = users;});
-    //
-    
-    //this.localVariable.asObservable().subscribe((userC) => {this.idUser = userC?.lobbyId ?? 0; console.log("PPP"+userC?.lobbyId);});
-    //const chou = JSON.parse(prueba);//object
-    //console.log("PPPPP"+chou);
+    console.log("userCooie: "+JSON.stringify(this.cookieUser));
+
   }
   
   logout(): void {//se puede cambiar idUser por cookie.idprobar 
@@ -66,9 +55,7 @@ export class LobbyComponent implements OnInit{
     alert("join: "+this.idUser+"loby: "+lobby.id+"cookier: "+this.cookieUser);
     this.update.updateUser(this.idUser, true, lobby.id).subscribe();
     this.cookieUser.lobbyId = lobby.id;
-    // Convierte nuevamente el objeto en una cadena JSON
-    //let nuevaCookieValue = JSON.stringify(this.cookieUser);
-    //this.cookieService.set('user', nuevaCookieValue);
+    this.cookieUser.estadoLobby = true;
 
     //pobando metodo next del cookieSvc
     this.localVariable.nexts(this.cookieUser);

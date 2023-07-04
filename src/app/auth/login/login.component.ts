@@ -15,7 +15,11 @@ export class LoginComponent implements OnInit{
   loginError: boolean = false;
   userList!: Usuario[];//lista de usuarios
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private userLog: UserListService, private localStorageSvc: LocalStorageService){}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    private userLog: UserListService, 
+    private localStorageSvc: LocalStorageService){}
 
   ngOnInit(): void {
     this.saveUsers();
@@ -41,6 +45,8 @@ export class LoginComponent implements OnInit{
       // Ejemplo de datos hardcodeados para validar el inicio de sesión
       if (usuario && usuario.password === password) {
 
+        //
+        
         //this.saveUsers(usuario.id);
         this.localStorageSvc.nexts(usuario);
         this.userLog.setLogout(usuario.id, true).subscribe();

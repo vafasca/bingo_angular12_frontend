@@ -21,7 +21,7 @@ export class UserListService {
 
   setLogout(userId: number, estadoSend:boolean): Observable<Usuario>{
     const url = `${this.apiURI}/${userId}`;
-    const body = { estado: estadoSend, lobbyId: 0 };
+    const body = { estado: estadoSend, lobbyId: 0, estadoLobby: false };
     return this.http.patch<Usuario>(url, body);
   }
 

@@ -17,7 +17,7 @@ export class BingoRoomComponent implements OnInit{
   constructor(
     private localStorgeSvc: LocalStorageService,
     private router: Router,
-    private update: UserListService){}
+    private userListSvc: UserListService){}
   ngOnInit(): void {
     //this.localStorgeSvc.asObservable().subscribe((user) => {this.userCookie = user; this.userLog = user?.id});
     this.localStorgeSvc.asObservable().subscribe((user: Usuario | null) => {
@@ -33,9 +33,10 @@ export class BingoRoomComponent implements OnInit{
   }
 
   logout(): void {//se puede cambiar idUser por cookie.idprobar 
-    //this.localStorgeSvc.clearUser()//cookieSvc
-    //alert("Saliendo: "+"id "+this.idUser+"estado "+false);
-    //this.update.setLogout(this.idUser, false).subscribe();//cuando le da salir cambia estado a false
+    this.cookieUser.estadoLobby = false;
+    this.cookieUser.lobbyId = 0;
+    this.localStorgeSvc.nexts(this.cookieUser);
+    this.userListSvc.setLogout(this.idUser, false).subscribe();//cuando le da salir cambia estado a false
     alert("saliendo"+this.idUser);
     this.router.navigate(['/lobby']);
   }
